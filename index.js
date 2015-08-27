@@ -65,7 +65,8 @@ app.get('/:website/card/:cardname', function(req, res) {
         res.json({status: 'ok', data:
           {
             card: card.title.urldecode(),
-            set: card.sets
+            set: card.sets,
+            url: card.url
           }
         });
       }, function(err) {
