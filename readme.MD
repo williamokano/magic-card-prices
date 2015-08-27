@@ -30,6 +30,25 @@ E.g. (This link doesn't really exists, just for explanation :) )
 http://10.11.232.33/ligamagic/card/Blood+Moon
 ```
 
+The output will be something like that:
+```
+{
+  status: "ok",
+  data: {
+      card: "Lua Sangrenta",
+      set: {
+        mma: [ ],
+        9e: [ ],
+        8e: [ ],
+        ch: [ ],
+        dk: [ ]
+      }
+    }
+}
+```
+
+Notice that the price still not being fetched.... yet!
+
 ## How to run
 To run this project is pretty simple:
 - npm install
