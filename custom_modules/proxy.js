@@ -29,6 +29,7 @@ var yesterday = today.yesterday();
 module.exports = {
   get : function(get_callback) {
     request_options["url"] = "http://checkerproxy.net/getProxy?date=" + yesterday.toDBString();
+    console.log("http://checkerproxy.net/getProxy?date=" + yesterday.toDBString());
     var request_yesterday = requestp(request_options).then(function(body) {
         var $ = cheerio.load(body);
         var total = $("ul").eq(1).find("li").length;
@@ -42,6 +43,7 @@ module.exports = {
     });
 
     request_options["url"] = "http://checkerproxy.net/getProxy?date=" + today.toDBString();
+    console.log("http://checkerproxy.net/getProxy?date=" + today.toDBString());
     var request_today = requestp(request_options).then(function(body) {
         var $ = cheerio.load(body);
         var total = $("ul").eq(1).find("li").length;
