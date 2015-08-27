@@ -68,7 +68,7 @@ The output will be something like that:
 }
 ```
 
-Notice that the price still not being fetched.... yet!
+~~Notice that the price still not being fetched.... yet!~~
 
 ## How to run
 To run this project is pretty simple:
