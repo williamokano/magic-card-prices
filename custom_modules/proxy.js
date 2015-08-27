@@ -37,6 +37,8 @@ module.exports = {
             proxy_list.push($(elem).text().replace(/^(\d+\.\d+\.\d+\.\d+:\d+)(\s+.*)?/gi, "$1"));
           });
         }
+    }, function(err) {
+      console.log("ERR getting yesterday proxy: " + err);
     });
 
     request_options["url"] = "http://checkerproxy.net/getProxy?date=" + today.toDBString();
@@ -48,6 +50,8 @@ module.exports = {
             proxy_list.push($(elem).text().replace(/^(\d+\.\d+\.\d+\.\d+:\d+)(\s+.*)?/gi, "$1"));
           });
         }
+    }, function(err) {
+      console.log("ERR getting today proxy: " + err);
     });
 
     return Promise.all([request_yesterday, request_today]).then(function() {
