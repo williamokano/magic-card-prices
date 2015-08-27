@@ -23,8 +23,18 @@ module.exports = {
           //read the data
           var $ = cheerio.load(body);
           var title = $(".cardTitle").text();
+          var card_sets = {};
+          var card = {};
+          $(".overview td").each(function(i, elem) {
+            var card_set = $("a", elem).attr("href");
+            card_set = card_set.split("%3d")[1];
+            card_sets[card_set] = []; //No prices found yet!
+          });
 
-          resolve(title);
+          card["title"] = title;
+          card["sets"] = card_sets;
+
+          resolve(card);
           //resolve("Misterious card info!");
         }, function(err) {
           reject(err); //Cascading promises

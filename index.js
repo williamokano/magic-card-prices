@@ -64,10 +64,8 @@ app.get('/:website/card/:cardname', function(req, res) {
       find_promise.then(function(card) {
         res.json({status: 'ok', data:
           {
-            card: card.urldecode(),
-            set: {
-              ktk: { prices: [0, 0, 0]}
-            }
+            card: card.title.urldecode(),
+            set: card.sets
           }
         });
       }, function(err) {
