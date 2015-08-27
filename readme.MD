@@ -35,15 +35,36 @@ The output will be something like that:
 {
   status: "ok",
   data: {
-      card: "Lua Sangrenta",
-      set: {
-        mma: [ ],
-        9e: [ ],
-        8e: [ ],
-        ch: [ ],
-        dk: [ ]
-      }
-    }
+    card: "Lua Sangrenta",
+    set: {
+      mma: [
+        "199.99",
+        "239.93",
+        "300.55"
+      ],
+      9e: [
+        "172.50",
+        "227.78",
+        "344.23"
+      ],
+      8e: [
+        "172.50",
+        "215.71",
+        "281.78"
+      ],
+      ch: [
+        "189.90",
+        "211.77",
+        "337.11"
+      ],
+      dk: [
+        "183.90",
+        "184.90",
+        "185.90"
+      ]
+    },
+    url: "http://ligamagic.com.br/?view=cards%2Fsearch&card=Blood+Moon"
+  }
 }
 ```
 
