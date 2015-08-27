@@ -1,5 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var Promise = require('promise');
 var requestp = require('./requestp');
 var proxy_list = [];
 
