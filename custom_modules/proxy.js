@@ -1,6 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var Promise = require('promise');
+var requestp = require('./requestp');
 var proxy_list = [];
 
 var request_options = {
@@ -24,23 +24,6 @@ Date.prototype.toDBString = function() {
 //Make the proxy request
 var today = new Date();
 var yesterday = today.yesterday();
-
-function requestp(options, data) {
-  data = data || false;
-  return new Promise(function(resolve, reject) {
-    request(options, function(err, res, body) {
-      if(err) {
-        return reject(err);
-      }else if(res.statusCode !== 200) {
-        err = new Error('Unexpected status code: ' + res.statusCode);
-        err.res = res;
-        return reject(err);
-      }else{
-        resolve(body);
-      }
-    });
-  });
-}
 
 module.exports = {
   get : function(get_callback) {

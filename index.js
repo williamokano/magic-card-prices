@@ -9,11 +9,8 @@ var app = new express();
 var proxy_list = [];
 var sites = ['ligamagic', 'tcgplayer', 'magicdomain'];
 
-try {
-  var finder = card_finder_factory.get('ligamagic');
-  finder.find('Blood moon');
-}catch(err) {
-  console.log(err);
+String.prototype.urldecode = function() {
+  return decodeURIComponent(this).replace(/\+/g, ' ');
 }
 
 /* UPDATE the proxy_list */
@@ -60,14 +57,29 @@ app.get('/:website/card/:cardname', function(req, res) {
   if(sites.indexOf(website) == -1) {
     res.json({status: 'error', data: { msg : 'Source not found.' } });
   }else{
-    res.json({status: 'ok', data:
-      {
-        card: 'Not found',
-        set: {
-          ktk: { prices: [0, 0, 0]}
-        }
-      }
-    });
+    try {
+      var random = parseInt(Math.random() * proxy_list.length, 10);
+      var finder = card_finder_factory.get(website);
+      var find_promise = finder.find(cardname, proxy_list[random]);
+      find_promise.then(function(card) {
+        res.json({status: 'ok', data:
+          {
+            card: card.urldecode(),
+            set: {
+              ktk: { prices: [0, 0, 0]}
+            }
+          }
+        });
+      }, function(err) {
+        res.json({status: 'error', data:
+          {
+            msg: err
+          }
+        });
+      });
+    }catch(err) {
+      console.log(err);
+    }
   }
 });
 
