@@ -1,4 +1,4 @@
-var proxy = require('./proxy');
+var proxy = require('./custom_modules/proxy');
 var request = require('request');
 var cheerio = require('cheerio');
 var http = require('http');
