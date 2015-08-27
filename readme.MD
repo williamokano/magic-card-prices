@@ -25,6 +25,11 @@ In the future I pretend to add some new websites.
 Blood+Moon
 ```
 
+E.g. (This link doesn't really exists, just for explanation :) )
+```
+http://10.11.232.33/ligamagic/card/Blood+Moon
+```
+
 ## How to run
 To run this project is pretty simple:
 - npm install
