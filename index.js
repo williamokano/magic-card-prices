@@ -1,4 +1,6 @@
+var config = require('./config');
 var proxy = require('./custom_modules/proxy');
+var card_finder_factory = require('./custom_modules/card/finder/factory');
 var request = require('request');
 var cheerio = require('cheerio');
 var http = require('http');
@@ -6,6 +8,13 @@ var express = require('express');
 var app = new express();
 var proxy_list = [];
 var sites = ['ligamagic', 'tcgplayer', 'magicdomain'];
+
+try {
+  var finder = card_finder_factory.get('ligamagic');
+  finder.find('Blood moon');
+}catch(err) {
+  console.log(err);
+}
 
 /* UPDATE the proxy_list */
 function update_proxies(callback) {
