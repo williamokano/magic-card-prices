@@ -20,7 +20,7 @@ ligamagic
 ```
 In the future I pretend to add some new websites.
 
-```:card_name``` should be urlencoded (and spaced replaced by a + sign)
+```:card_name``` should be urlencoded (and spaced replaced by a + sign instead of %20)
 ```
 Blood+Moon
 ```
