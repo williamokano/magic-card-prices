@@ -20,6 +20,9 @@ module.exports = {
       requestp(request_options)
         .then(function(body) {
 
+          if(body.indexOf("0-0") !== -1)
+            reject("Card not found");
+
           //read the data
           var $ = cheerio.load(body);
           var title = $(".cardTitle").text();
