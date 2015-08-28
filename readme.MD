@@ -25,7 +25,7 @@ In the future I pretend to add some new websites.
 Blood+Moon
 ```
 
-E.g. (This link doesn't really exists, just for explanation :) )
+E.g. ~~(This link doesn't really exists, just for explanation :) )~~
 ```
 http://45.55.213.219:8080/ligamagic/card/Blood+Moon
 ```
