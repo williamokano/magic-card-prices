@@ -14,13 +14,15 @@ String.prototype.urldecode = function() {
 }
 
 /* UPDATE the proxy_list */
-function update_proxies(callback) {
+var update_proxies = function (callback) {
   console.log("Updating proxy list");
   proxy.get(function(pl) {
     proxy_list = pl;
     console.log("Proxy list updated");
   });
   callback !== undefined && callback();
+
+  setTimeout(update_proxies, 1000 * 60 * 60 * 24); //Update proxies every 24 hours
 }
 update_proxies();
 
