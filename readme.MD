@@ -27,7 +27,7 @@ Blood+Moon
 
 E.g. ~~(This link doesn't really exists, just for explanation :) )~~
 ```
-http://45.55.213.219:8080/ligamagic/card/Blood+Moon
+http://159.203.88.225:3000/ligamagic/card/Blood+Moon
 ```
 
 The output will be something like that:
