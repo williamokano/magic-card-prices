@@ -33,38 +33,58 @@ http://159.203.88.225:3000/ligamagic/card/Blood+Moon
 The output will be something like that:
 ```
 {
-  status: "ok",
-  data: {
-    card: "Lua Sangrenta",
-    set: {
-      mma: [
-        "199.99",
-        "239.93",
-        "300.55"
-      ],
-      9e: [
-        "172.50",
-        "227.78",
-        "344.23"
-      ],
-      8e: [
-        "172.50",
-        "215.71",
-        "281.78"
-      ],
-      ch: [
-        "189.90",
-        "211.77",
-        "337.11"
-      ],
-      dk: [
-        "183.90",
-        "184.90",
-        "185.90"
-      ]
-    },
-    url: "http://ligamagic.com.br/?view=cards%2Fsearch&card=Blood+Moon"
-  }
+    status: "ok",
+    data: {
+        card: "Lua Sangrenta",
+        currencies: [
+            "USD"
+        ],
+        sets: [
+            "mma",
+            "9e",
+            "8e",
+            "ch",
+            "dk"
+        ],
+        prices: {
+            mma: {
+                USD: [
+                    "219.00",
+                    "264.18",
+                    "294.54"
+                ]
+            },
+            9e: {
+                USD: [
+                    "187.90",
+                    "256.10",
+                    "269.99"
+                ]
+            },
+            8e: {
+                USD: [
+                    "269.99",
+                    "274.62",
+                    "316.26"
+                ]
+            },
+            ch: {
+                USD: [
+                    "189.90",
+                    "209.47",
+                    "304.66"
+                ]
+            },
+            dk: {
+                USD: [
+                    "185.90",
+                    "186.90",
+                    "187.90"
+                ]
+            }
+        },
+        url: "http://ligamagic.com.br/?view=cards%2Fsearch&card=Blood+Moon"
+    }
 }
 ```
 
