@@ -37,7 +37,7 @@ The output will be something like that:
     data: {
         card: "Lua Sangrenta",
         currencies: [
-            "USD"
+            "BRL"
         ],
         sets: [
             "mma",
@@ -48,35 +48,35 @@ The output will be something like that:
         ],
         prices: {
             mma: {
-                USD: [
+                BRL: [
                     "219.00",
                     "264.18",
                     "294.54"
                 ]
             },
             9e: {
-                USD: [
+                BRL: [
                     "187.90",
                     "256.10",
                     "269.99"
                 ]
             },
             8e: {
-                USD: [
+                BRL: [
                     "269.99",
                     "274.62",
                     "316.26"
                 ]
             },
             ch: {
-                USD: [
+                BRL: [
                     "189.90",
                     "209.47",
                     "304.66"
                 ]
             },
             dk: {
-                USD: [
+                BRL: [
                     "185.90",
                     "186.90",
                     "187.90"

@@ -17,10 +17,10 @@ Example:
     data: {
         card: "Lua Sangrenta",
         sets: ["mma"],
-        currencies: ["USD"],
+        currencies: ["BRL"],
         prices: {
             mma: {
-                USD: [
+                BRL: [
                     "219.00",
                     "264.18",
                     "294.54"
