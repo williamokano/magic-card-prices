@@ -31,14 +31,14 @@ app.get('/', function(req, res) {
   res.json({status: 'error', data: { msg : 'Method not found' } });
 });
 
-app.get('/update_list', function(res, res) {
+app.get('/update_list', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   update_proxies(function() {
     res.json({status: 'ok', data: { msg : 'Proxy list updated' } });
   });
 });
 
-app.get('/get_proxy', function(res, res) {
+app.get('/get_proxy', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   if(proxy_list.length == 0) {
     update_proxies(function() {
