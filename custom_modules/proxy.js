@@ -1,8 +1,6 @@
 var request = require('request');
-var cheerio = require('cheerio');
 var Promise = require('promise');
 var requestp = require('./requestp');
-var proxy_list = [];
 
 var request_options = {
   headers: {
@@ -25,44 +23,28 @@ Date.prototype.toDBString = function() {
 //Make the proxy request
 var today = new Date();
 var yesterday = today.yesterday();
+var proxy_list = [];
+
+var request_proxy = function(date, proxy_list_result) {
+  request_options["url"] = "http://checkerproxy.net/api/archive/" + date.toDBString();
+  request_options["json"] = true;
+  console.log(request_options["url"]);
+  return requestp(request_options).then(function(proxy_list_resp) {
+    for (var i = 0; i < proxy_list_resp.length; i++) {
+      if (proxy_list_resp[i].ip_geo_country == "Brazil" && proxy_list_resp[i].timeout <= 5000) {
+        proxy_list_result.push(proxy_list_resp[i].addr);
+      }
+    }
+  }, function(err) {
+    console.log("ERR getting proxy for " + date.toDBString() + " : " + err);
+  });
+}
 
 module.exports = {
   get : function(get_callback) {
-    request_options["url"] = "http://checkerproxy.net/getProxy?date=" + yesterday.toDBString();
-    console.log("http://checkerproxy.net/getProxy?date=" + yesterday.toDBString());
-    var request_yesterday = requestp(request_options).then(function(body) {
-        var $ = cheerio.load(body);
-        var total = $("ul").eq(1).find("li").length;
-        if(total > 0) {
-          $("ul").eq(1).find("li").each(function(i, elem) {
-            proxy_list.push($(elem).text().replace(/^(\d+\.\d+\.\d+\.\d+:\d+)(\s+.*)?/gi, "$1"));
-          });
-        }
-    }, function(err) {
-      console.log("ERR getting yesterday proxy: " + err);
-    });
+    proxy_list = [];
 
-    request_options["url"] = "http://checkerproxy.net/getProxy?date=" + today.toDBString();
-    console.log("http://checkerproxy.net/getProxy?date=" + today.toDBString());
-    var request_today = requestp(request_options).then(function(body) {
-        var $ = cheerio.load(body);
-        var total = $("ul").eq(1).find("li").length;
-        if(total > 0) {
-          $("ul").eq(1).find("li").each(function(i, elem) {
-            proxy_list.push($(elem).text().replace(/^(\d+\.\d+\.\d+\.\d+:\d+)(\s+.*)?/gi, "$1"));
-          });
-        }
-    }, function(err) {
-      console.log("ERR getting today proxy: " + err);
-    });
-
-    return Promise.all([request_yesterday, request_today]).then(function() {
-      /*
-      var array_proxy = [];
-      proxy_list.forEach(function(item) {
-        array_proxy.push(item.split(":"));
-      });
-      */
+    return Promise.all([request_proxy(yesterday, proxy_list), request_proxy(today, proxy_list)]).then(function() {
       get_callback(proxy_list);
     });
   }
