@@ -25,12 +25,12 @@ module.exports = {
 
           //read the data
           var $ = cheerio.load(body);
-          var title = $(".cardTitle").text();
+          var title = $(".titulo-card").text();
           var card_sets_obj = {};
           var card_set_array = [];
           var card = {};
           var moeda = "BRL";
-          $(".overview td").each(function(i, elem) {
+          $("ul.edicoes > li").each(function(i, elem) {
             var card_set = $("a", elem).attr("href");
             card_set = card_set.split("%3d")[1];
             card_sets_obj[card_set] = {}; //No prices found yet!
