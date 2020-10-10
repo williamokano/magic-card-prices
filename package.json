@@ -4,6 +4,7 @@
   "description": "Simple rest API to look for magic the gathering card prices among some websites",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
