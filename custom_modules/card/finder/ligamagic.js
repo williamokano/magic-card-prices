@@ -25,17 +25,13 @@ module.exports = {
 
           //read the data
           var $ = cheerio.load(body);
+
           var title = $(".nome-auxiliar").eq(0).text();
           var card_sets_obj = {};
           var card_set_array = [];
           var card = {};
           var curency = "BRL";
           $(".card-image .edicoes li").each(function(i, elem) {
-
-            //@TODO:  Stop reading from the Javascript at the end of the page
-            //        and scrappe the page instead. Dumbass! There's a table
-            //        with the prices, lel!
-
             var regexSetInfo = new RegExp("vetPorEdicao\\[" + i.toString() + "\\]=\\[(.*?)\\];", "i");
             var setInfo = JSON.parse("[" + body.match(regexSetInfo)[1] + "]");
 
