@@ -4,6 +4,7 @@
   "description": "Simple rest API to look for magic the gathering card prices among some websites",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,7 +15,7 @@
   "author": "William Okano",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "cheerio": "^0.19.0",
+    "cheerio": "^0.22.0",
     "express": "^4.13.3",
     "promise": "^7.0.4",
     "request": "^2.61.0"

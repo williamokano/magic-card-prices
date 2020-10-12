@@ -1,6 +1,8 @@
 var request = require('request');
 var Promise = require('promise');
 
+//@TODO:  Stop using request, since it's deprecated on npm
+
 module.exports = function (options, data) {
   data = data || false;
   return new Promise(function(resolve, reject) {
