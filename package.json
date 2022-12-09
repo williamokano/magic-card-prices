@@ -16,7 +16,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "express": "^4.13.3",
+    "express": "^4.17.3",
     "promise": "^7.0.4",
     "request": "^2.61.0"
   }
